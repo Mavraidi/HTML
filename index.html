@@ -1,341 +1,108 @@
 <!DOCTYPE html>
 <html>
-  <head><style>
-    @import url("https://fonts.googleapis.com/css?family=Luckiest+Guy");
-  
-      body {
-
-    margin: auto;
-    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
-    overflow: auto;
-    background: linear-gradient(315deg, rgba(101,0,94,1) 3%, rgba(60,132,206,1) 38%, rgba(48,238,226,1) 68%, rgba(255,25,25,1) 98%);
-    animation: gradient 15s ease infinite;
-    background-size: 400% 400%;
-    background-attachment: fixed;
-}
-h1 {
-  cursor: default;
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100%;
-  height: 100px;
-  margin: auto;
-  display: block;
-  text-align: center;
-}
-
-h1 span {
-  position: relative;
-  top: 20px;
-  display: inline-block;
-  -webkit-animation: bounce 0.3s ease infinite alternate;
-  font-size: 80px;
-  color: #fff;
-  text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
-    0 5px 0 #ccc, 0 6px 0 transparent, 0 7px 0 transparent, 0 8px 0 transparent,
-    0 9px 0 transparent, 0 10px 10px rgba(0, 0, 0, 0.4);
-}
-
-h1 span:nth-child(2) {
-  -webkit-animation-delay: 0.1s;
-}
-
-h1 span:nth-child(3) {
-  -webkit-animation-delay: 0.2s;
-}
-
-h1 span:nth-child(4) {
-  -webkit-animation-delay: 0.3s;
-}
-
-h1 span:nth-child(5) {
-  -webkit-animation-delay: 0.4s;
-}
-
-h1 span:nth-child(6) {
-  -webkit-animation-delay: 0.5s;
-}
-
-h1 span:nth-child(7) {
-  -webkit-animation-delay: 0.6s;
-}
-
-h1 span:nth-child(8) {
-  -webkit-animation-delay: 0.2s;
-}
-
-h1 span:nth-child(9) {
-  -webkit-animation-delay: 0.3s;
-}
-
-h1 span:nth-child(10) {
-  -webkit-animation-delay: 0.4s;
-}
-
-h1 span:nth-child(11) {
-  -webkit-animation-delay: 0.5s;
-}
-
-h1 span:nth-child(12) {
-  -webkit-animation-delay: 0.6s;
-}
-
-h1 span:nth-child(13) {
-  -webkit-animation-delay: 0.7s;
-}
-
-h1 span:nth-child(14) {
-  -webkit-animation-delay: 0.8s;
-}
-
-@-webkit-keyframes bounce {
-  100% {
-    top: -20px;
-    text-shadow: 0 1px 0 #ccc, 0 2px 0 #ccc, 0 3px 0 #ccc, 0 4px 0 #ccc,
-      0 5px 0 #ccc, 0 6px 0 #ccc, 0 7px 0 #ccc, 0 8px 0 #ccc, 0 9px 0 #ccc,
-      0 50px 25px rgba(0, 0, 0, 0.2);
-  }
-}
-
-@keyframes gradient {
-    0% {
-        background-position: 0% 0%;
-    }
-    50% {
-        background-position: 100% 100%;
-    }
-    100% {
-        background-position: 0% 0%;
-    }
-}
-
-.wave {
-    background: rgb(255 255 255 / 25%);
-    border-radius: 1000% 1000% 0 0;
-    position: fixed;
-    width: 200%;
-    height: 12em;
-    animation: wave 10s -3s linear infinite;
-    transform: translate3d(0, 0, 0);
-    opacity: 0.8;
-    bottom: 0;
-    left: 0;
-    z-index: -1;
-}
-
-.wave:nth-of-type(2) {
-    bottom: -1.25em;
-    animation: wave 18s linear reverse infinite;
-    opacity: 0.8;
-}
-
-.wave:nth-of-type(3) {
-    bottom: -2.5em;
-    animation: wave 20s -1s reverse infinite;
-    opacity: 0.9;
-}
-
-@keyframes wave {
-    2% {
-        transform: translateX(1);
-    }
-
-    25% {
-        transform: translateX(-25%);
-    }
-
-    50% {
-        transform: translateX(-50%);
-    }
-
-    75% {
-        transform: translateX(-25%);
-    }
-
-    100% {
-        transform: translateX(1);
-    }
-
-    
-}
-@keyframes firework {
-  0% { transform: translate(var(--x), var(--initialY)); width: var(--initialSize); opacity: 1; }
-  50% { width: 0.5vmin; opacity: 1; }
-  100% { width: var(--finalSize); opacity: 0; }
-}
-
-/* @keyframes fireworkPseudo {
-  0% { transform: translate(-50%, -50%); width: var(--initialSize); opacity: 1; }
-  50% { width: 0.5vmin; opacity: 1; }
-  100% { width: var(--finalSize); opacity: 0; }
-}
- */
-.firework,
-.firework::before,
-.firework::after
-{
-  --initialSize: 0.5vmin;
-  --finalSize: 45vmin;
-  --particleSize: 0.2vmin;
-  --color1: yellow;
-  --color2: khaki;
-  --color3: white;
-  --color4: lime;
-  --color5: gold;
-  --color6: mediumseagreen;
-  --y: -30vmin;
-  --x: -50%;
-  --initialY: 60vmin;
-  content: "";
-  animation: firework 2s infinite;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, var(--y));
-  width: var(--initialSize);
-  aspect-ratio: 1;
-  background: 
-    /*
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 0%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 0%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 100% 100%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 0% 100%,
-    */
-    
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 50% 0%,
-    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 50%,
-    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 50% 100%,
-    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 0% 50%,
-    
-    /* bottom right */
-    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 80% 90%,
-    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 95% 90%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 90% 70%,
-    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 100% 60%,
-    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 55% 80%,
-    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 70% 77%,
-    
-    /* bottom left */
-    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 22% 90%,
-    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 45% 90%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 70%,
-    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 10% 60%,
-    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 31% 80%,
-    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 28% 77%,
-    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 13% 72%,
-    
-    /* top left */
-    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 80% 10%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 95% 14%,
-    radial-gradient(circle, var(--color2) var(--particleSize), #0000 0) 90% 23%,
-    radial-gradient(circle, var(--color3) var(--particleSize), #0000 0) 100% 43%,
-    radial-gradient(circle, var(--color4) var(--particleSize), #0000 0) 85% 27%,
-    radial-gradient(circle, var(--color5) var(--particleSize), #0000 0) 77% 37%,
-    radial-gradient(circle, var(--color6) var(--particleSize), #0000 0) 60% 7%,
-    
-    /* top right */
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 22% 14%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 45% 20%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 33% 34%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 10% 29%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 31% 37%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 28% 7%,
-    radial-gradient(circle, var(--color1) var(--particleSize), #0000 0) 13% 42%
-    ;
-  background-size: var(--initialSize) var(--initialSize);
-  background-repeat: no-repeat;
-}
-
-.firework::before {
-  --x: -50%;
-  --y: -50%;
-  --initialY: -50%;
-/*   transform: translate(-20vmin, -2vmin) rotate(40deg) scale(1.3) rotateY(40deg); */
-  transform: translate(-50%, -50%) rotate(40deg) scale(1.3) rotateY(40deg);
-/*   animation: fireworkPseudo 2s infinite; */
-}
-
-.firework::after {
-  --x: -50%;
-  --y: -50%;
-  --initialY: -50%;
-/*   transform: translate(44vmin, -50%) rotate(170deg) scale(1.15) rotateY(-30deg); */
-  transform: translate(-50%, -50%) rotate(170deg) scale(1.15) rotateY(-30deg);
-/*   animation: fireworkPseudo 2s infinite; */
-}
-
-.firework:nth-child(2) {
-  --x: 30vmin;
-}
-
-.firework:nth-child(2),
-.firework:nth-child(2)::before,
-.firework:nth-child(2)::after {
-  --color1: pink;
-  --color2: violet;
-  --color3: fuchsia;
-  --color4: orchid;
-  --color5: plum;
-  --color6: lavender;  
-  --finalSize: 40vmin;
-  left: 30%;
-  top: 60%;
-  animation-delay: -0.25s;
-}
-
-.firework:nth-child(3) {
-  --x: -30vmin;
-  --y: -50vmin;
-}
-
-.firework:nth-child(3),
-.firework:nth-child(3)::before,
-.firework:nth-child(3)::after {
-  --color1: cyan;
-  --color2: lightcyan;
-  --color3: lightblue;
-  --color4: PaleTurquoise;
-  --color5: SkyBlue;
-  --color6: lavender;
-  --finalSize: 35vmin;
-  left: 70%;
-  top: 60%;
-  animation-delay: -0.4s;
-}
-      </style>
+  <head>
 </head>
 
   <body>
-    <div class="container">
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="wave"></div>
-        <div class="birthday">
-            <h1>
-                <span>H</span>
-                <span>a</span>
-                <span>p</span>
-                <span>p</span>
-                <span>y</span>
-                
-              </br>
-                <span>B</span>
-                <span>i</span>
-                <span>r</span>
-                <span>t</span>
-                <span>h</span>
-                <span>d</span>
-                <span>a</span>
-                <span>y</span>
-                
-              </h1>
-              <div class="firework"></div>
-    <div class="firework"></div>
-    <div class="firework"></div>
-    </div>
+    <table cellspacing="15">
+      <tr>
+        <td>
+          <img
+            src="data:image/jpeg;base64,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"
+            width="200"
+            alt="Фото"
+          />
+        </td>
+        <td>
+          <h1>Мавраиди Антон</h1>
+          <p>
+            <em
+              >Я путешественника на
+              <strong>автодоме.</strong></em
+            >
+          </p>
+          <p><em>Зимую в Сочи и изучаюFrontend</em></p>
+        </td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h2>Мои контакты</h2>
+    <ul type="disc">
+      <li>
+        <a
+          href="https://instagram.com/mawraidi"
+          target="_blank"
+          >Instagram</a
+        >
+      </li>
+      <li>
+        <a href="https://t.me/mawraidi" target="_blank"
+          >Telegram</a
+        >
+      </li>
+    </ul>
+
+    <hr />
+
+    <h2>Мои Хобби</h2>
+    <ol type="I">
+      <li>Езда на мотоцикле</li>
+      <li>Прогулки</li>
+      <li>Ремонт техники</li>
+    </ol>
+
+    <hr />
+
+    <h2>Опыт работы</h2>
+    <table>
+      <tr>
+        <th>Компания</th>
+        <th>Должность</th>
+        <th>Год</th>
+      </tr>
+      <tr>
+        <td>MTS</td>
+        <td>Менеджер</td>
+        <td>2014-2015</td>
+      </tr>
+      <tr>
+        <td>Spargo</td>
+        <td>Старший специалисто по Виспо</td>
+        <td>2015-ever</td>
+      </tr>
+    </table>
+
+    <hr />
+
+    <h2>Курсы</h2>
+    <a href="Kurs.html">Посмотреть Курсы</a>
+    <hr />
+
+    <h2>Связаться со мной</h2>
+
+    <form action="/">
+      <label for="name">Ваше имя:</label>
+      <input
+        type="text"
+        id="name"
+        placeholder="Введите ваше имя...."
+      />
+      <br />
+      <label for="email">Ваш Email:</label>
+      <input
+        type="email"
+        id="email"
+        placeholder="Введите ваше Email...."
+      />
+      <br />
+      <label for="email">Ваше сообщение:</label>
+      <br />
+      <textarea name="text" rows="2" cols="15"></textarea>
+      <br />
+      <input type="submit" value="Связаться" />
+    </form>
     
  </body>
     
